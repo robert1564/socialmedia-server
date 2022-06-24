@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from 'cors';
 import authApi from './routes/authApi.js'
 import userApi from './routes/userApi.js'
 import postApi from './routes/postApi.js'
@@ -12,6 +13,7 @@ const app = express();
 // Middleware
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(cors())
 
 dotenv.config();
 
